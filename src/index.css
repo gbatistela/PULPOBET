@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+@layer components {
+  .casino-text {
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  }
+  
+  .shadow-golden {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  }
+  
+  .casino-chips {
+    @apply absolute inset-0 opacity-30;
+    background-image: radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 5px, transparent 5px),
+                      radial-gradient(circle at 80% 40%, rgba(0, 0, 255, 0.1) 5px, transparent 5px),
+                      radial-gradient(circle at 40% 30%, rgba(255, 255, 0, 0.1) 5px, transparent 5px),
+                      radial-gradient(circle at 70% 90%, rgba(0, 255, 0, 0.1) 5px, transparent 5px);
+    background-size: 300px 300px;
+    animation: moveChips 80s linear infinite;
+  }
+  
+  .casino-cards {
+    @apply absolute inset-0 opacity-10;
+    background-image: 
+      linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+      linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+    background-size: 50px 50px;
+    animation: moveCards 100s linear infinite;
+  }
+  
+  .casino-smoke {
+    @apply absolute inset-0 opacity-20;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%),
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    background-size: 100% 100%;
+    animation: moveSmoke 20s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes moveChips {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px;
+  }
+}
+
+@keyframes moveCards {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 500px -500px;
+  }
+}
+
+@keyframes moveSmoke {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    background-position: 100% 100%;
+    opacity: 0.1;
+  }
+}
